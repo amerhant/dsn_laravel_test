@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('employees.index');
 });
+Route::post('/employees/import','EmployeeController@importexcel');
+Route::get('/employees/export','EmployeeController@exportExcel');
+Route::resource('/employees', 'EmployeeController',['except'=>['show']]);
